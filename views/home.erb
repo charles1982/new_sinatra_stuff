@@ -1,0 +1,6 @@
+<h1>Hello World</h1>
+<%= "there are no users" if @users.empty? %>
+<% @users.each do |u| %>
+<h2><%= u.email %></h2>
+<h3><%= u.password %></h3>
+<%end%>
