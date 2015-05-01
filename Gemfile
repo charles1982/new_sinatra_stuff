@@ -5,6 +5,7 @@ gem 'activerecord'
 gem 'sinatra'
 gem 'sqlite3'
 gem 'rake'
+gem 'rack-flash3' 
 
 
 

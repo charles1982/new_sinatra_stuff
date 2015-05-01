@@ -1,6 +1,18 @@
 <h1>Hello World</h1>
+<form>
+    <form method="POST" action="/sign-in">
+<label for="email">email</label>
+<input type="text" name="email">
+<label for="password">Password</label>
+<input type="password" name="password">
+<input type="submit" name="yay">
+</form>
 <%= "there are no users" if @users.empty? %>
+ <% if flash[:notice] %>
+   <div class="flash notice">
+     <%= flash[:notice] %>
+   </div>
 <% @users.each do |u| %>
 <h2><%= u.email %></h2>
 <h3><%= u.password %></h3>
-<%end%>
+   <%end%>
