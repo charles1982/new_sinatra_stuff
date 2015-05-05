@@ -2,36 +2,44 @@ require 'bundler/setup'
 require 'sinatra/base' 
 require 'rack-flash'
 
-set :database, "sqlite3:rachet.sqlire3"
+require 'bundler/setup'
+require 'sinatra/base' 
+require 'rack-flash'
 
-enable :sessions
-use Rack::Flash, :sweep => true
-set :sessions => true
+# set :database, "sqlite3:rachet.sqlire3"
+
+# def enable (:sessions)
+# use Rack::Flash, :sweep => true
+# set :sessions => true
 
 def current_user
-if session[:user_id]
-@current_user = User.find(session[:user_id])
+if session[:users]
+@current_user = User.find(session[:users])
 end
 end
 
- def current_user
-    session[:user_id].nil? ? nil : User.find(session[:user_id])
+ def get(signin)
+    # session[:email].nil? ? nil : User.find(session[:email])
   end
   
   def display_one
     "1"
   end
 
-get '/' do 
-	@users = User.all
-	erb :home
-end
-	get '/signin' do
-  erb :signin
+# get '/email' do 
+#   @users = User.alls
+#   erb :home
+# end
+  get '/signin' do
+  erb :home
 end
 
 get '/' do
   flash[:notice] = 'Welcome to the homepage'
+end
+
+def post(signup)
+
 end
 
 post '/sign_up' do 
